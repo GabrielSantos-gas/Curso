@@ -1,0 +1,17 @@
+{% if is_detail_page is not True %}
+<footer class="recipe-footer">
+    {% for recipe in recipes %}
+    <a class="recipe-read-more button button-dark button-full-width" href="{% url 'recipe-recipes' recipe.id %}">
+        <i class="fas fa-eye"></i>
+        <span>ver mais...</span>
+    </a>
+    {% endfor %}
+</footer>
+{% endif %}
+
+
+{% if is_detail_page is True %}
+    <div class="preparation-steps">
+        {{ recipe.preparation_steps|linebreaksbr }}
+    </div>
+{% endif %}
